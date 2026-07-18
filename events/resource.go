@@ -1,3 +1,6 @@
+// events provides resource for system communication
+//
+// Register events with [events.RegisterEvents] function
 package events
 
 // Events is an resource that holds events and allow systems for easy communication.
