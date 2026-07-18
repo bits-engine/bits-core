@@ -1,6 +1,8 @@
 package events
 
 import (
+	"reflect"
+
 	"github.com/bits-engine/bits-ecs/resource"
 	"github.com/bits-engine/bits-ecs/world"
 )
@@ -12,6 +14,12 @@ func RegisterEvents[T any](w *world.World) (eventType *resource.ResourceType[Eve
 	systemType := w.Sched(world.ScheduleUpdate).Add(world.NewSysConf(&eventUpdateSystem[T]{
 		eventResourceType: typ,
 	}))
+
+	log.Get().Debug("event registered",
+		"resourceID", typ.ID(),
+		"type", reflect.TypeFor[Events[T]]().Name(),
+		"systemID", systemType,
+	)
 
 	return typ, systemType
 }
