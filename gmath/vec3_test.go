@@ -30,7 +30,7 @@ func TestConstructors3(t *testing.T) {
 		{"Right3", Right3(), Vector3{X: 1, Y: 0, Z: 0}},
 		{"Left3", Left3(), Vector3{X: -1, Y: 0, Z: 0}},
 		{"Forward3", Forward3(), Vector3{X: 0, Y: 0, Z: 1}},
-		{"Back3", Back3(), Vector3{X: 0, Y: 0, Z: -1}},
+		{"Back3", Backward3(), Vector3{X: 0, Y: 0, Z: -1}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

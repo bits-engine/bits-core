@@ -30,7 +30,7 @@ func Forward3() Vector3 {
 	return Vec3(0, 0, 1)
 }
 
-func Back3() Vector3 {
+func Backward3() Vector3 {
 	return Vec3(0, 0, -1)
 }
 
