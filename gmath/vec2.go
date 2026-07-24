@@ -61,7 +61,7 @@ func (v Vector2) Distance(o Vector2) float32 {
 func (v Vector2) Normalize() Vector2 {
 	l := v.Length()
 	if IsEqual(l, 0, NormalEpsilon) {
-		return Zero()
+		return Zero2()
 	}
 
 	return Vec2(v.X/l, v.Y/l)

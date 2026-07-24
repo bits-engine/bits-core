@@ -24,13 +24,13 @@ func TestConstructors(t *testing.T) {
 		want Vector2
 	}{
 		{"Vec2", Vec2(3, 4), Vector2{X: 3, Y: 4}},
-		{"Zero", Zero(), Vector2{X: 0, Y: 0}},
-		{"One", One(), Vector2{X: 1, Y: 1}},
-		{"NegOne", NegOne(), Vector2{X: -1, Y: -1}},
-		{"Up", Up(), Vector2{X: 0, Y: 1}},
-		{"Down", Down(), Vector2{X: 0, Y: -1}},
-		{"Right", Right(), Vector2{X: 1, Y: 0}},
-		{"Left", Left(), Vector2{X: -1, Y: 0}},
+		{"Zero", Zero2(), Vector2{X: 0, Y: 0}},
+		{"One", One2(), Vector2{X: 1, Y: 1}},
+		{"NegOne", NegOne2(), Vector2{X: -1, Y: -1}},
+		{"Up", Up2(), Vector2{X: 0, Y: 1}},
+		{"Down", Down2(), Vector2{X: 0, Y: -1}},
+		{"Right", Right2(), Vector2{X: 1, Y: 0}},
+		{"Left", Left2(), Vector2{X: -1, Y: 0}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -54,7 +54,7 @@ func TestSub(t *testing.T) {
 func TestScale(t *testing.T) {
 	approxEqualVec(t, Vec2(2, 3).Scale(2), Vec2(4, 6), "Scale positive")
 	approxEqualVec(t, Vec2(2, 3).Scale(-1), Vec2(-2, -3), "Scale negative")
-	approxEqualVec(t, Vec2(2, 3).Scale(0), Zero(), "Scale zero")
+	approxEqualVec(t, Vec2(2, 3).Scale(0), Zero2(), "Scale zero")
 }
 
 func TestMul(t *testing.T) {
@@ -86,7 +86,7 @@ func TestAbs(t *testing.T) {
 
 func TestLength(t *testing.T) {
 	assert.InDelta(t, 5, Vec2(3, 4).Length(), testEpsilon, "Length (3-4-5 triangle)")
-	assert.InDelta(t, 0, Zero().Length(), testEpsilon, "Length of zero vector")
+	assert.InDelta(t, 0, Zero2().Length(), testEpsilon, "Length of zero vector")
 }
 
 func TestLengthSquared(t *testing.T) {
@@ -111,8 +111,8 @@ func TestNormalize(t *testing.T) {
 }
 
 func TestNormalizeZeroVector(t *testing.T) {
-	got := Zero().Normalize()
-	approxEqualVec(t, got, Zero(), "Normalize of zero vector should return zero, not NaN")
+	got := Zero2().Normalize()
+	approxEqualVec(t, got, Zero2(), "Normalize of zero vector should return zero, not NaN")
 	assert.False(t, math.IsNaN(float64(got.X)), "Normalize should not produce NaN (X)")
 	assert.False(t, math.IsNaN(float64(got.Y)), "Normalize should not produce NaN (Y)")
 }
@@ -243,7 +243,7 @@ func TestEquals(t *testing.T) {
 }
 
 func TestIsZero(t *testing.T) {
-	assert.True(t, Zero().IsZero(), "expected zero vector to report true")
+	assert.True(t, Zero2().IsZero(), "expected zero vector to report true")
 	assert.False(t, Vec2(0.1, 0).IsZero(), "expected non-zero vector to report false")
 }
 
