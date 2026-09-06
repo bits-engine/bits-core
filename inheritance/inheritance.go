@@ -8,10 +8,10 @@ import (
 	"github.com/bits-engine/bits-ecs/entity"
 )
 
-// Add adds one entity to children list for another.
+// Set adds one entity to children list for another.
 //
 // Call SetWriteAccess() inside system's Access method.
-func Add(
+func Set(
 	cs *component.ComponentStorage,
 	types *Types,
 	parent entity.Entity,
